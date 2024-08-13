@@ -1,0 +1,7 @@
+2024-08-13 12:24:50,754 - movie_app - INFO - User 9icekingsley@yahoo.com does not exist!
+2024-08-13 12:25:02,894 - movie_app - INFO - iamukn@yahoo.com logged in!
+2024-08-13 12:27:12,010 - movie_app - INFO - {new_user.get("email")} was successfully registered!
+2024-08-13 12:31:27,731 - movie_app - INFO - Registration denied! User with the  kingsley@yahoo.com already exist!
+2024-08-13 12:31:33,848 - movie_app - INFO - kingsleyyy@yahoo.com was successfully registered!
+2024-08-13 18:16:22,826 - movie_app - INFO - iamukn@yahoo.com was successfully registered!
+2024-08-13 18:17:38,036 - movie_app - INFO - iamukn@yahoo.com logged in!

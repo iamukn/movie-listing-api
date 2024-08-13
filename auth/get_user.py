@@ -7,6 +7,7 @@ def get_user(email):
     if email:
         # get user 
         user = session.query(User).filter_by(email=email).first()
-        return user
+        if user:
+            return user
 
     return False
