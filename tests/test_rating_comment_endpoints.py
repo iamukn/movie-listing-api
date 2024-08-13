@@ -71,8 +71,8 @@ def test_nested_comments():
 
     res = response.json()
 
-    #assert response.status_code == 200
-    #assert 'comments' in res.keys()
+    assert response.status_code == 200
+    assert 'comments' in res.keys()
     
     if res['comments']:
         assert res['comments'][0]['content'] == data.get('content')   
