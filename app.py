@@ -2,7 +2,6 @@
 from fastapi import FastAPI, Depends, HTTPException, status
 from db.users_model import User, session
 from db.movies_model import Movie, Comment, Rating, movie_session
-from pydantic import BaseModel, EmailStr
 from schemas.schemas import (
         Login, User_data, Token,
         MovieValidate, MovieUpdate, 
