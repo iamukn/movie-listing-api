@@ -14,6 +14,7 @@ def test_signup():
             json = {"name": name, "email": email, "password": password}
             )
     res_code =  response.json().get('status_code')
+    print(response.content)
     assert response.status_code == 200
     assert res_code == 201
 

@@ -77,7 +77,7 @@ The goal of this capstone project is to develop a **Movie Listing API** using **
    Add the SECRET_KEY environment variable 
 
 5. **Run the database migrations (if you use any production level database):**
-    - This project used Sqlite3, so migration isn't needed
+    - This project used Postgresql database
 
 
 6. **Start the FastAPI server:**

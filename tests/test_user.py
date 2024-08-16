@@ -2,7 +2,7 @@
 from auth.jwt_utils import create_access_token
 
 # TEST USER
-name = "John Doe"
-email = "JohnDoe@gmail.com"
+name = "Johnjass"
+email = "Johoonysee@mail.com"
 password = "password"
 token = create_access_token(data={'email': email})

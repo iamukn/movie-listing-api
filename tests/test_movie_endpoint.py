@@ -1,5 +1,6 @@
 #!/usr/bin/python3
 from app import app, get_current_user
+from db.movies_model import Movie, movie_session
 from fastapi.testclient import TestClient
 from .test_user import name, email, password, token
 
@@ -10,8 +11,10 @@ client = TestClient(app)
 movie_data = {
     "title": "Inception",
     "release_date": "2010-07-16",
-    "genre": "Sci-Fi"
+    "genre": "Sci-Fi",
+    "created_by": "testuser1@gmail.com"
     }
+
 
 # headers for authenticated routes
 headers = {"Authorization": f"Bearer {token}"}

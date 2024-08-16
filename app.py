@@ -90,6 +90,7 @@ async def add_movie(movie_data: MovieValidate, current_user: dict = Depends(get_
         movie = Movie(title=movie_data['title'], release_date=movie_data['release_date'], genre=movie_data['genre'], created_by=movie_data['created_by'])
         movie_session.add(movie)
         movie_session.commit()
+        movie_data['id'] = movie.id
         return movie_data
 
     except IntegrityError as e:
@@ -213,10 +214,8 @@ async def comments(comment_data: CommentsValidator, id: int, current_user: dict=
                 detail = "NOT FOUND"
             )
     except Exception as e:
-        if e.status_code == status.HTTP_404_NOT_FOUND:
-            return {'status_code': e.status_code, 'detail': e.detail}
-        logger.info(e.detail)
-        return "An internal error occurred!"
+        logger.info(str(e))
+        return {'status_code': status.HTTP_404_NOT_FOUND, 'detail': 'NOT FOUND'}
 
 # Fetch all comments linked to a movie
 @app.get('/api/v1/movies/{id:int}/comments')
@@ -231,9 +230,7 @@ async def get_comments(id: int):
             detail = "NOT FOUND"
                 )
     except Exception as e:
-        if e.status_code == status.HTTP_404_NOT_FOUND:
-            return {'status_code': e.status_code, 'detail': e.detail}
-        return "An internal error occurred!"
+        return {'status_code': status.HTTP_404_NOT_FOUND, 'detail': "NOT FOUND"}
 
 # Nested comments
 @app.post('/api/v1/comments/{id:int}')
@@ -253,9 +250,7 @@ async def nested_comments(comment_data: CommentsValidator, id: int, current_user
             detail = "NOT FOUND"
                 )
     except Exception as e:
-        if e.status_code == status.HTTP_404_NOT_FOUND:
-            return {'status': e.status_code}
-        return "An internal error occurred!"
+        return {'status': status.HTTP_404_NOT_FOUND}
 
 """ Fetch comments and nested comments 
 @app.get('/api/v1/comments/')

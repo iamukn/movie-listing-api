@@ -15,7 +15,7 @@ class User(Base):
     password = Column(String, nullable=False)
 
 # Create an SQLite database
-engine = create_engine('sqlite:///user.db')
+engine = create_engine('postgresql://laurena:password@localhost:5432/mydb')
 Base.metadata.create_all(engine)
 
 # Create a new session

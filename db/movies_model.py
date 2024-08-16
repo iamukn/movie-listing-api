@@ -40,21 +40,9 @@ class Rating(Base):
     movie = relationship('Movie', back_populates='ratings')
 
 # Create an SQLite database
-engine = create_engine('sqlite:///movies_collection.db')
+engine = create_engine('postgresql://laurena:password@localhost:5432/mydb')
 Base.metadata.create_all(engine)
 
 # Create a new session
 Session = sessionmaker(bind=engine)
 movie_session = Session()
-
-"""
-# Add sample data
-movie1 = Movie(title='Movie 1', created_by='ukn@gmail.com', genre='Drama', release_date = '1993-12-12')
-comment1 = Comment(content='Great movie!',commenter='ukn@gmail.com', movie=movie1)
-rating1 = Rating(score=5, movie=movie1, rated_by='ukn@gmail.com')
-
-movie_session.add(movie1)
-movie_session.add(comment1)
-movie_session.add(rating1)
-movie_session.commit()
-"""
